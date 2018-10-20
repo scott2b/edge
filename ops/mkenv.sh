@@ -1,3 +1,3 @@
-virtualenv -p `which python3` env
+python3 -m venv env
 . env/bin/activate
 pip install -r ../requirements/production.txt

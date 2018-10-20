@@ -1,10 +1,8 @@
 {% comment "This comment section will be deleted in the generated project" %}
 
-# [Edge][docs]
+ [Edge][docs]
 
 [![Build Status](https://travis-ci.org/arocks/edge.svg?branch=master)](https://travis-ci.org/arocks/edge)
-
-**A Fantastic Django project starter.**
 
 ## Features
 
@@ -14,7 +12,35 @@
 * Logging/Debugging Helpers
 * Works on Python 2.7 or 3.4
 
-## Quick start:
+# Deploy early; deploy often
+
+This template is intended for creation of a Django project on the deployment server. This encourages early deployment and reduces a lot of the common headaches of deployment.
+
+By creating the application within the deployment environment, we can take advantage of helpful resources like the app_directory context variable in Django's startproject templates.
+
+There is a bootstrapping issue with this approach in that we need a Django install in order to generate the templated project. To this end, we recommend keeping a suite of environments, probably in the deploying user's home directory, with the Django installs you might need for deployment. This approach is assumed in the production quickstart below.
+
+For local development, it is recommended that you use whatever virtual envirnment management you are used to. The development quickstart uses Pipenv, but this is optional.
+
+## Quick start (on production):
+
+Assumes availability of an existing deployment environment with Django installed.
+
+```
+ $ . <path-to-django-virtualenv>
+ $ export PROJ=<projectname>
+ $ cd <path-to-site-deployments>
+ $ django-admin startproject --template=https://github.com/scott2b/edge/archive/master.zip --extension=py,md,html,env,nginx,service $PROJ
+ $ cd <projectname>/ops
+ $ ./mkenv.sh
+```
+
+Edit the database params in the `src/.env` file (Note: .env is git-ignored for changes)
+
+
+## Quickstart (for development):
+
+**Note:** In order to facilitate early deployment, it is recommended that you create your project in a production deployment environment using the instructions above. The instructions below are for creating a project locally.
 
 ```
  $ export PROJ=projectname
@@ -25,11 +51,10 @@
  $ pipenv install Django==2.1.2
  $ django-admin startproject --template=https://github.com/scott2b/edge/archive/master.zip --extension=py,md,html,env $PROJ .
  $ pipenv install -r requirements/development.txt
- $ cd src
- $ cp env.example .env
 ```
 
-Edit/fill in the .env file (Note: .env is git-ignored).
+
+Edit the database params in the .env file (Note: .env is git-ignored for changes).
 
 To source the .env file:
 
