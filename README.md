@@ -31,11 +31,39 @@ Assumes availability of an existing deployment environment with Django installed
  $ export PROJ=<projectname>
  $ cd <path-to-site-deployments>
  $ django-admin startproject --template=https://github.com/scott2b/edge/archive/master.zip --extension=py,md,html,env,nginx,service $PROJ
- $ cd <projectname>/ops
+ $ deactivate
+ $ cd $PROJ/ops
  $ ./mkenv.sh
+ $ sudo ln -s `pwd`/<projectname>.nginx /etc/nginx/sites-enabled/<projectname>
+ $ sudo ln -s `pwd`/sewunique.service /etc/systemd/system/sewunique.service
+```
+
+Create the database(s). Generally, do this as the postgres user. E.g:
+
+```
+ $ sudo su - postgres
+ $ psql
+ postgres=# create database <dbname>;
+ postgres=# create user <username> password '<password>';
+ postgres=# grant all privileges on database <dbname> to <username>;
+ postgres=# \q
+ $ exit
 ```
 
 Edit the database params in the `src/.env` file (Note: .env is git-ignored for changes)
+
+Restart services:
+
+```
+ $ sudo systemctl restart <projectname>
+ $ sudo systemctl restart nginx
+```
+
+## Troubleshooting
+
+ * look for the gunicorn.socket file in the ops directory
+ * inspect /var/log/nginx/error.log
+ * inspect /var/log/syslog
 
 
 ## Quickstart (for development):
