@@ -16,12 +16,31 @@
 
 ## Quick start:
 
-1. `$ django-admin.py startproject --template=https://github.com/arocks/edge/archive/master.zip --extension=py,md,html,env my_proj`
-2. `$ cd my_proj`
-3. `$ pip install -r requirements.txt `
-4. `$ cd src`
-5. `$ cp my_proj/settings/local.sample.env my_proj/settings/local.env` (New!)
-6. `$ python manage.py migrate`
+```
+ $ export PROJ=projectname
+ $ mkdir $PROJ
+ $ cd $PROJ
+ $ pipenv shell
+ $ pipenv run pip install pip==18.0
+ $ pipenv install Django==2.1.2
+ $ django-admin startproject --template=https://github.com/scott2b/edge/archive/master.zip --extension=py,md,html,env $PROJ .
+ $ pipenv install -r requirements/development.txt
+ $ cd src
+ $ cp env.example .env
+```
+
+Edit/fill in the .env file (Note: .env is git-ignored).
+
+To source the .env file:
+
+```
+ $ . env.sh
+```
+
+Alternatively, consider using something like `autenv`: https://github.com/kennethreitz/autoenv
+or `direnv` (with .envrc instead of .env):  https://direnv.net/
+
+**Note: until Pipenv works with current version of pip, we need to force pip to 18.0**
 
 More information at: [http://django-edge.readthedocs.org/][docs]
 

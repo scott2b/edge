@@ -1,5 +1,3 @@
 -r base.txt
-
-# Extra stuff required for production like Prod Database interfacing packages
-# psycopg2
 django[argon2]
+gunicorn==19.9.0

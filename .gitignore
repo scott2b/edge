@@ -1,3 +1,9 @@
+# Pipenv recommends submitting the pip files, but this conflicts with using
+# pipenv during the bootstrapping process since Django templates don't want to
+# overwrite existing files
+Pipfile
+Pipfile.lock
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -22,6 +28,7 @@ build
 
 # Environment variables
 .env
+.envrc
 local.env
 
 # Django stuff:
