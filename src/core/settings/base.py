@@ -71,6 +71,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'accounts',
     'authtools',
+    'crispy_forms',
     'django_extensions',
     'easy_thumbnails',
     'grappelli',
