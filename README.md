@@ -56,6 +56,17 @@ Create the database(s). Generally, do this as the postgres user. E.g:
 Edit the database params in the `src/.env` file (Note: .env is git-ignored for changes)
 Also uncomment the DJANGO_SETTINGS_MODULE configuration for production
 
+Migrate the dB and collect static (**Note:** argon2 is not being properly installed from the requirements file, so we fix that here):
+
+```
+ $ . site/env/bin/activate
+ $ pip install django[argon2]
+ $ cd src
+ $ . env.sh
+ $ ./manage migrate
+ $ ./manage collectstatic
+```
+
 Restart services:
 
 ```
