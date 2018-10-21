@@ -54,6 +54,7 @@ Create the database(s). Generally, do this as the postgres user. E.g:
 ```
 
 Edit the database params in the `src/.env` file (Note: .env is git-ignored for changes)
+Also uncomment the DJANGO_SETTINGS_MODULE configuration for production
 
 Restart services:
 
