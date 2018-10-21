@@ -4,9 +4,6 @@
 Pipfile
 Pipfile.lock
 
-# ops/env is the production virtualenvironment
-ops/env
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
