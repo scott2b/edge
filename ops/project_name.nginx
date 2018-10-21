@@ -14,12 +14,12 @@ server {
 
     # Your Django project's media files - amend as required
     location /media  {
-        alias {{ project_directory }}/media;
+        alias {{ project_directory }}/src/media;
     }
 
     # your Django project's static files - amend as required
     location /static {
-        alias {{ project_directory }}/static;
+        alias {{ project_directory }}/src/static;
     }
 
     # Proxy the static assests for the Django Admin panel
