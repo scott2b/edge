@@ -35,7 +35,7 @@ in `src/core/settings/production.py`
  $ cd <path-to-site-deployments>
  $ django-admin startproject --template=https://github.com/scott2b/edge/archive/master.zip --extension=py,md,html,env,nginx,service $PROJ
  $ deactivate
- $ cd $PROJ/ops
+ $ cd $PROJ/site
  $ ./mkenv.sh
  $ sudo ln -s `pwd`/<projectname>.nginx /etc/nginx/sites-enabled/<projectname>
  $ sudo ln -s `pwd`/sewunique.service /etc/systemd/system/sewunique.service
@@ -65,7 +65,7 @@ Restart services:
 
 ## Troubleshooting deployment
 
- * look for the gunicorn.socket file in the ops directory
+ * look for the gunicorn.socket file in the site directory
  * inspect /var/log/syslog
  * inspect /var/log/nginx/error.log
  * It can be helpful to independently execute the ExecStart command (found in the service file)

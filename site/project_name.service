@@ -1,0 +1,16 @@
+[Unit]
+Description=Gunicorn daemon for {{ project_name }}
+Before=nginx.service
+After=network.target
+
+[Service]
+WorkingDirectory={{ project_directory }}/src
+EnvironmentFile={{ project_directory }}/src/.env
+ExecStart={{ project_directory }}/site/env/bin/gunicorn --name={{ project_name }} --pythonpath={{ project_directory }}/src --bind unix:{{ project_directory }}/site/gunicorn.socket --config /etc/gunicorn.d/gunicorn.py core.wsgi:application
+Restart=always
+SyslogIdentifier={{ project_name }}
+User=apps
+Group=apps
+
+[Install]
+WantedBy=multi-user.target
