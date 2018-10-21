@@ -32,7 +32,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Must mention ALLOWED_HOSTS in production!
-# ALLOWED_HOSTS = ["{{ project_name }}.com"]
+ALLOWED_HOSTS = ['{{ project_name }}.com']
 
 # Cache the templates in memory for speed-up
 loaders = [

@@ -26,6 +26,9 @@ For local development, it is recommended that you use whatever virtual envirnmen
 
 Assumes availability of an existing deployment environment with Django installed.
 
+Ideally, projectname is the domain apex. If not, be sure to edit the ALLOWED_HOSTS
+in `src/core/settings/production.py`
+
 ```
  $ . <path-to-django-virtualenv>
  $ export PROJ=<projectname>
@@ -59,11 +62,14 @@ Restart services:
  $ sudo systemctl restart nginx
 ```
 
-## Troubleshooting
+## Troubleshooting deployment
 
  * look for the gunicorn.socket file in the ops directory
- * inspect /var/log/nginx/error.log
  * inspect /var/log/syslog
+ * inspect /var/log/nginx/error.log
+ * It can be helpful to independently execute the ExecStart command (found in the service file)
+   - as the application execution user, `. env.sh`
+   - copy and execute the ExecStart command (after the =) from the service file
 
 
 ## Quickstart (for development):
