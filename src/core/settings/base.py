@@ -136,4 +136,4 @@ LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
 LOGIN_URL = reverse_lazy("accounts:login")
 
 THUMBNAIL_EXTENSION = 'png'     # Or any extn for your thumbnails
-GRAPPELLI_ADMIN_TITLE = env.get('GRAPPELLI_ADMIN_TITLE', '{{ project_name }} Admin')
+GRAPPELLI_ADMIN_TITLE = env('GRAPPELLI_ADMIN_TITLE', default='{{ project_name }} Admin')
