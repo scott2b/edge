@@ -1,4 +1,4 @@
-from .base import *             # NOQA
+from .common import *             # NOQA
 import sys
 import logging.config
 
