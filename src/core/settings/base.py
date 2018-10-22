@@ -63,6 +63,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'grappelli',
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.contenttypes',
@@ -74,7 +75,6 @@ INSTALLED_APPS = (
     'crispy_forms',
     'django_extensions',
     'easy_thumbnails',
-    'grappelli',
     'profiles',
 )
 
@@ -136,3 +136,4 @@ LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
 LOGIN_URL = reverse_lazy("accounts:login")
 
 THUMBNAIL_EXTENSION = 'png'     # Or any extn for your thumbnails
+GRAPPELLI_ADMIN_TITLE = env.get('GRAPPELLI_ADMIN_TITLE', '{{ project_name }} Admin')
