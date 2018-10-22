@@ -10,11 +10,17 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 from django.urls import reverse_lazy
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / "directory"
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+# collected and uploaded media in the site dir should not be source controlled
+
+# staticfiles dirs is used in local development
 STATICFILES_DIRS = [str(BASE_DIR / 'static'), ]
+# static root is the destination for collectstatic
+STATIC_ROOT = str(BASE_DIR.parent / 'site' / 'static')
+
 MEDIA_ROOT = str(BASE_DIR / 'media')
 MEDIA_URL = "/media/"
+MEDIA_ROOT = str(BASE_DIR.parent / 'site' / 'media')
 
 # Use Django templates using the new Django 1.8 TEMPLATES settings
 TEMPLATES = [
