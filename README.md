@@ -20,7 +20,7 @@ By creating the application within the deployment environment, we can take advan
 
 There is a bootstrapping issue with this approach in that we need a Django install in order to generate the templated project. To this end, we recommend keeping a suite of environments, probably in the deploying user's home directory, with the Django installs you might need for deployment. This approach is assumed in the production quickstart below.
 
-For local development, it is recommended that you use whatever virtual envirnment management you are used to. The development quickstart uses Pipenv, but this is optional.
+For local development, it is recommended that you use whatever virtual environment management you are used to. The development quickstart uses Pipenv, but this is optional.
 
 ## Quick start (on production):
 
