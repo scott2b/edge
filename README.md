@@ -38,7 +38,7 @@ in `src/core/settings/production.py`
  $ cd $PROJ/site
  $ ./mkenv.sh
  $ sudo ln -s `pwd`/<projectname>.nginx /etc/nginx/sites-enabled/<projectname>
- $ sudo ln -s `pwd`/sewunique.service /etc/systemd/system/sewunique.service
+ $ sudo ln -s `pwd`/<projectname>.service /etc/systemd/system/<projectname>.service
 ```
 
 Create the database(s). Generally, do this as the postgres user. E.g:
